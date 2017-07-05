@@ -1,0 +1,12 @@
+docker run \
+  --privileged \
+  --rm \
+  -it \
+  -e DISPLAY=${DISPLAY} \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  rojima1/android-dev \
+  bash
+
+# -v $HOME/.AndroidStudio2.3:/home/developer/.AndroidStudio2.3 \
+# -v $HOME/.gradle:/home/developer/.gradle \
+

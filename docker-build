@@ -1,0 +1,4 @@
+(cd dev && ./build)
+# (cd android-dev && ./build)
+(cd clojure-dev && ./build)
+(cd python-dev && ./build)
