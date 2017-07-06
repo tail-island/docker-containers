@@ -1,9 +1,0 @@
-  /home/ryo/Documents/Projects/docker-containers/dev:
-  total used in directory 28 available 196166376
-  drwxrwxr-x 2 ryo ryo 4096  7月  5 19:58 .
-  -rw-rw-r-- 1 ryo ryo 2911  7月  5 19:58 init.el
-  -rw-rw-r-- 1 ryo ryo  606  7月  5 19:58 Dockerfile
-  -rwxr-xr-x 1 ryo ryo  143  7月  5 19:57 build
-  -rw-rw-r-- 1 ryo ryo  464  7月  5 19:55 install-packages.el
-  drwxrwxr-x 7 ryo ryo 4096  7月  5 19:23 ..
-  -rwxr-xr-x 1 ryo ryo  178  7月  5 13:03 run

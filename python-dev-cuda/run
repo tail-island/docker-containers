@@ -4,5 +4,4 @@ docker run \
   -it \
   -e DISPLAY=${DISPLAY} \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  rojima1/android-dev \
-  /opt/android-studio/bin/studio.sh
+  rojima1/python-dev-cuda
