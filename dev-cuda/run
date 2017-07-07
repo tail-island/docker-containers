@@ -1,4 +1,4 @@
-docker run \
+nvidia-docker run \
   --privileged \
   --rm \
   -it \
