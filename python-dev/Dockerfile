@@ -92,7 +92,32 @@ RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8
 RUN wget -q -O tensorflow-1.2.1.zip https://github.com/tensorflow/tensorflow/archive/v1.2.1.zip && \
     unzip tensorflow-1.2.1 && \
     cd tensorflow-1.2.1 && \
-    printf "/usr/bin/python3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" | ./configure && \
+    expect -c \
+     "set timeout 60; \
+      spawn ./configure; \
+      expect \"Please specify the location of python.\"; \
+      send \"/usr/bin/python3\n\"; \
+      expect \"Please input the desired Python library path to use.\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with MKL support?\"; \
+      send \"\n\"; \
+      expect \"Please specify optimization flags to use during compilation when bazel option\"; \
+      send \"\n\"; \
+      expect \"Do you wish to use jemalloc as the malloc implementation?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with Google Cloud Platform support?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with Hadoop File System support?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with the XLA just-in-time compiler (experimental)?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with VERBS support?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with OpenCL support?\"; \
+      send \"\n\"; \
+      expect \"Do you wish to build TensorFlow with CUDA support?\"; \
+      send \"\n\"; \
+      expect eof;" && \
     bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package && \
     ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg && \
     pip3 install /tmp/tensorflow_pkg/tensorflow-1.2.1-cp35-cp35m-linux_x86_64.whl
